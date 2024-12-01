@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight Café Community</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(145deg, #121212, #2c3e50), url('https://img.freepik.com/free-photo/night-sky-with-stars-illustration-background_2251411.jpg');
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            padding-top: 50px;  /* Added padding to ensure header is not cut off */
+            overflow-y: auto;  /* Allows the page to scroll if content exceeds the view */
+        }
+
+        /* Background Emojis */
+        .background-emojis {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            font-size: 3rem;
+            opacity: 0.1;
+        }
+
+        .background-emojis span {
+            position: absolute;
+            animation: move 10s linear infinite;
+        }
+
+        /* Animating Emojis */
+        @keyframes move {
+            0% { transform: translateY(-100px) translateX(-100px); }
+            100% { transform: translateY(100vh) translateX(100vw); }
+        }
+
+        /* Container Styles */
+        .container {
+            position: relative;
+            width: 600px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 3px solid gold;
+            border-radius: 15px;
+            box-shadow: 0 0 25px gold;
+            z-index: 1;
+            padding: 20px;
+            max-width: 100%;
+            margin-bottom: 30px;  /* Ensures space for footer */
+            min-height: 700px;  /* Ensures container is tall enough */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(to bottom, #0d0d0d, #232323);
+            padding: 20px 10px;
+            border-bottom: 2px solid gold;
+            box-shadow: 0 2px 10px rgba(255, 223, 0, 0.2);
+            width: 100%;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: gold;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* Icon Section */
+        .icon {
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .icon img {
+            width: 180px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px white;
+            transition: transform 0.3s ease;
+        }
+
+        .icon img:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Description Section */
+        .description {
+            margin: 20px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        /* Call-to-Action Button */
+        .cta {
+            margin-top: 40px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: gold;
+            padding: 15px 30px;
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 223, 0, 0.2);
+        }
+
+        .cta a:hover {
+            background: #e6c300;
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 223, 0, 0.3);
+        }
+
+        /* Event Announcement Section */
+        .event-announcement {
+            background: rgba(255, 223, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 0 0 15px rgba(255, 223, 0, 0.3);
+            width: 80%;
+        }
+
+        .event-announcement h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .event-announcement p {
+            font-size: 1.2rem;
+            color: #1a1a2e;
+        }
+
+        /* Footer Section */
+        .footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+            padding: 15px;
+            background-color: transparent;  /* Make background transparent */
+        }
+
+        .footer a {
+            color: gold;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer img {
+            width: 25px;
+            height: 25px;
+            margin-right: 8px;
+            vertical-align: middle;
+            transition: transform 0.3s;
+        }
+
+        .footer img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                height: auto;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .icon img {
+                width: 120px;
+            }
+
+            .cta a {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+
+            .event-announcement {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Emojis -->
+    <div class="background-emojis">
+        <span style="top: 10%; left: 5%;">☕</span>
+        <span style="top: 20%; left: 15%;">🌟</span>
+        <span style="top: 30%; left: 25%;">🎶</span>
+        <span style="top: 40%; left: 35%;">🌙</span>
+        <span style="top: 50%; left: 45%;">✨</span>
+        <span style="top: 60%; left: 55%;">🌌</span>
+        <span style="top: 70%; left: 65%;">☕</span>
+        <span style="top: 80%; left: 75%;">🎮</span>
+        <span style="top: 90%; left: 85%;">🌟</span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Midnight Café</h1>
+        </div>
+
+        <div class="icon">
+            <!-- Midnight Café Logo -->
+            <img src="mx3.png" alt="Midnight Café Logo">
+        </div>
+
+        <div class="description">
+            <p>✨ Welcome to Midnight Café, the ultimate community for gaming, socializing, and fun! Chill, connect, and make new friends while enjoying amazing events and giveaways. Join our community now! 🌙🎮</p>
+        </div>
+
+        <div class="cta">
+            <a href="https://discord.gg/PJ2BpmWCk3" target="_blank">Join Our Server</a>
+        </div>
+
+        <!-- Event Announcement for 1000 Robux -->
+        <div class="event-announcement">
+            <h2>✨ Special Event: Win 1000 Robux! ✨</h2>
+            <p>To celebrate the launch of Midnight Café, we are giving away 1000 Robux to one lucky participant! 🎉 Join our server now for your chance to win!</p>
+            <p>Don't miss out on this amazing opportunity to win big. Enter by joining our Discord and participating in the event. ☕</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Follow Us:</p>
+            <a href="https://www.roblox.com/users/116949941/profile" target="_blank">
+                <img src="roblox.png" alt="Roblox Icon"> Roblox
+            </a>
+            <a href="https://discord.gg/PJ2BpmWCk3" target="_blank">
+                <img src="white-youtube.png" alt="YouTube Icon"> YouTube
+            </a>
+        </div>
+    </div>
+</body>
+</html>
